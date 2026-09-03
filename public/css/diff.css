@@ -21,8 +21,9 @@ body {
 body {
   background-color: var(--bgColor-default, #ffffff);
   color: var(--fgColor-default, #1f2328);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
   line-height: 1.5;
 }
@@ -144,7 +145,8 @@ html.is-loading body::after {
 }
 
 .export-btn.is-busy,
-.clear-btn.is-busy {
+.clear-btn.is-busy,
+.import-pr-btn.is-busy {
   opacity: 0.7;
 }
 
@@ -205,8 +207,8 @@ html.is-loading body::after {
 }
 
 .ref-pill {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   background-color: var(--bgColor-accent-muted, #ddf4ff);
   color: var(--fgColor-accent, #0969da);
   border-radius: 6px;
@@ -220,8 +222,8 @@ html.is-loading body::after {
   margin: 0;
   border: 1px solid transparent;
   font: inherit;
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   line-height: inherit;
   cursor: pointer;
 }
@@ -264,8 +266,8 @@ html.is-loading body::after {
 }
 
 .ref-note code {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   font-size: 12px;
 }
 
@@ -318,8 +320,8 @@ html.is-loading body::after {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 .ref-option-meta {
@@ -373,8 +375,8 @@ html.is-loading body::after {
 }
 
 .repo-path {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -469,8 +471,8 @@ html.is-loading body::after {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 .repo-shortcut-action {
@@ -517,8 +519,8 @@ html.is-loading body::after {
 }
 
 .repo-path-input {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   min-width: 16rem;
   max-width: 40vw;
   width: 40vw;
@@ -596,6 +598,27 @@ html.is-loading body::after {
   cursor: default;
 }
 
+/* Import-PR-comments button (subnav) */
+.import-pr-btn {
+  flex: none;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 12px;
+  line-height: 20px;
+  border-radius: 6px;
+  border: 1px solid var(--borderColor-default, #d1d9e0);
+  color: var(--fgColor-default, #1f2328);
+  background-color: var(--bgColor-default, #fff);
+  cursor: pointer;
+}
+.import-pr-btn:hover {
+  background-color: var(--bgColor-muted, #f6f8fa);
+}
+.import-pr-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
 /* Clear-comments button (subnav) */
 .clear-btn {
   flex: none;
@@ -665,8 +688,8 @@ html.is-loading body::after {
 }
 
 .notice code {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   font-size: 12px;
   padding: 1px 5px;
   border-radius: 4px;
@@ -761,6 +784,19 @@ html.is-loading body::after {
   padding: 4px 8px 8px;
 }
 
+.tree-hide-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tree-hide-toggle input {
+  margin: 0;
+}
+
 .tree-filter {
   width: 100%;
   box-sizing: border-box;
@@ -786,7 +822,19 @@ html.is-loading body::after {
 }
 
 .tree-row.is-filtered-out,
-.tree-dir.is-filtered-out {
+.tree-dir.is-filtered-out,
+.file.is-test-hidden,
+.file.is-style-hidden,
+html.hide-test-files .tree-file-row[data-test-file],
+html.hide-test-files .file[data-test-file],
+html.hide-style-files .tree-file-row[data-style-file],
+html.hide-style-files .file[data-style-file],
+html.hide-test-files:not(.hide-style-files)
+  .tree-dir:not(:has(.tree-file-row:not([data-test-file]))),
+html.hide-style-files:not(.hide-test-files)
+  .tree-dir:not(:has(.tree-file-row:not([data-style-file]))),
+html.hide-test-files.hide-style-files
+  .tree-dir:not(:has(.tree-file-row:not([data-test-file]):not([data-style-file]))) {
   display: none;
 }
 
@@ -897,6 +945,7 @@ html.is-loading body::after {
 
 .tree-file-row.is-active {
   background-color: var(--bgColor-accent-muted, #ddf4ff);
+  box-shadow: inset 2px 0 0 var(--borderColor-accent-emphasis, #0969da);
 }
 
 /* file-tree toggle button in the subnav */
@@ -1013,8 +1062,8 @@ html.is-loading body::after {
 }
 
 .file-path {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   font-weight: 600;
   color: var(--fgColor-default, #1f2328);
   overflow: hidden;
@@ -1023,8 +1072,8 @@ html.is-loading body::after {
 }
 
 .file-rename {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   color: var(--fgColor-muted, #59636e);
 }
 
@@ -1090,8 +1139,8 @@ html.is-loading body::after {
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   font-size: 12px;
   line-height: 20px;
   tab-size: 8;
@@ -1315,10 +1364,10 @@ html.is-loading body::after {
   background-color: var(--button-primary-bgColor-hover, #0860ca);
 }
 
-[data-comments-enabled='1'] .diff-table tr:hover .commentable .add-comment {
+[data-comments-enabled="1"] .diff-table tr:hover .commentable .add-comment {
   display: inline-flex;
 }
-[data-comments-enabled='1'] .diff-table tr:hover .commentable::before {
+[data-comments-enabled="1"] .diff-table tr:hover .commentable::before {
   visibility: hidden; /* hide the number while the + overlays the gutter */
 }
 
@@ -1408,7 +1457,8 @@ html.is-loading body::after {
   margin: 0 0 8px;
 }
 .comment-body code {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   font-size: 85%;
   padding: 1px 5px;
   border-radius: 4px;
@@ -1556,12 +1606,13 @@ html.is-loading body::after {
 }
 
 /* A left accent makes Claude's replies scannable at a glance. */
-.comment[data-author='claude'] {
+.comment[data-author="claude"] {
   border-left: 3px solid var(--borderColor-accent-emphasis, #0969da);
 }
 
 .comment-resolve,
-.comment-reply-btn {
+.comment-reply-btn,
+.comment-post-pr-btn {
   border: 0;
   background: transparent;
   padding: 0;
@@ -1570,8 +1621,13 @@ html.is-loading body::after {
   cursor: pointer;
 }
 .comment-resolve:hover,
-.comment-reply-btn:hover {
+.comment-reply-btn:hover,
+.comment-post-pr-btn:hover {
   color: var(--fgColor-accent, #0969da);
+}
+.comment-post-pr-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .comment-resolved-pill {
@@ -1592,3 +1648,63 @@ html.is-loading body::after {
   opacity: 1;
 }
 
+/* --- imported PR review comments: read-only context, distinct from
+   local comment threads (purple accent instead of the default border) --- */
+.pr-comment-thread {
+  max-width: 900px;
+  background-color: var(--bgColor-default, #fff);
+  border: 1px solid var(--borderColor-default, #d1d9e0);
+  border-left: 3px solid var(--borderColor-done-emphasis, #8250df);
+  border-radius: 6px;
+}
+
+.pr-comment-badge {
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fgColor-done, #8250df);
+  background-color: var(--bgColor-muted, #f6f8fa);
+  border-bottom: 1px solid var(--borderColor-default, #d1d9e0);
+  border-radius: 6px 6px 0 0;
+}
+
+.pr-comment + .pr-comment {
+  border-top: 1px solid var(--borderColor-muted, #d1d9e0);
+}
+
+.pr-comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 0;
+  font-size: 12px;
+}
+
+.pr-comment-author {
+  font-weight: 600;
+  color: var(--fgColor-default, #1f2328);
+}
+
+.pr-comment-body {
+  padding: 4px 12px 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fgColor-default, #1f2328);
+  white-space: pre-wrap;
+}
+
+.pr-comment-reply-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-top: 1px solid var(--borderColor-muted, #d1d9e0);
+  background: transparent;
+  padding: 6px 12px;
+  color: var(--fgColor-muted, #59636e);
+  font-size: 12px;
+  cursor: pointer;
+}
+.pr-comment-reply-btn:hover {
+  color: var(--fgColor-accent, #0969da);
+}
